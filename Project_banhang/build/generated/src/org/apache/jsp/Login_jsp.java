@@ -66,7 +66,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mess}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\n");
       out.write("                <input name=\"user\"  type=\"text\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Username\" required=\"\" autofocus=\"\">\n");
-      out.write("                <input name=\"pass\"  type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n");
+      out.write("                <input name=\"pass\" type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required=\"\">\n");
       out.write("\n");
       out.write("                <div class=\"form-group form-check\">\n");
       out.write("                    <input name=\"remember\" value=\"1\" type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n");
