@@ -11,10 +11,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.product;
+import model.Category;
 
 
 
-public class ProductDAO {
+public class DAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null; 
@@ -31,13 +32,40 @@ public class ProductDAO {
             ps = conn.prepareStatement(query);    
             rs = ps.executeQuery();               
             while (rs.next()) {
-                list.add(new producrs.getInt(1),
+                list.add(new product(rs.getInt(1),
                         rs.getString(2),
-                        rs.getInt(3),
-                        rs.getDate(4)));
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(4)
+                ));
             }
         } catch (Exception e) {
         }
         return list;
+    }
+    public List<Category> getAllCategorys() {
+        List<Category> clist = new ArrayList<>();
+        String query = "SELECT  [cid]\n"
+                + "      ,[cname]\n"
+                + "  FROM [Wish].[dbo].[Category]";
+        try {
+            conn = new BaseDAL().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                clist.add(new Category(rs.getInt(1),
+                        rs.getString(2)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return clist;
+    }
+    public static void main(String[] args) {
+        DAO dao = new DAO();
+        List<product> list= dao.getAllProduct();
+        for (product o : list) {
+            System.out.println(o);
+        }
     }
 }
