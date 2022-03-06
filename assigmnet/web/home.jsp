@@ -213,15 +213,7 @@
                             <div class="title">
                                 <h2> Categories</h2>
                                 <ul class="categiri">
-                                    <li class="active"><a href="#">Clothing</a></li>
-                                    <li><a href="#">Electronics</a></li>
-                                    <li><a href="#shoes">Shoes</a></li>
-                                    <li><a href="#">Watches</a></li>
-                                    <li><a href="#jewellery">Jewellery</a></li>
-                                    <li><a href="#">Health and Beauty</a></li>
-                                    <li><a href="#kids">Kids and Babies</a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Home and Garden</a></li>
+                                    <c:forEach items="${listC}" var = "o"><li class="${tag == o.cID ? "active":""}"><a href="category">${o.cName}</a></li></c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -231,7 +223,7 @@
                     <div id="brand"  class="brand-bg">
                         <h3>New brands</h3>
                         <div class="row">
-                            <c:forEach items="${list}" var ="o"><div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                            <c:forEach items="${listP}" var ="o"><div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                     <div class="brand-box">
                                         <h5>Sale</h5>
                                         <i><img src="${o.img}"/>
