@@ -213,7 +213,7 @@
                             <div class="title">
                                 <h2> Categories</h2>
                                 <ul class="categiri">
-                                    <c:forEach items="${listC}" var = "o"><li class="${tag == o.cID ? "active":""}"><a href="category">${o.cName}</a></li></c:forEach>
+                                    <c:forEach items="${listC}" var = "o"><li class="${tag == o.cID ? "active":""}"><a href="category?cid=${o.cID}">${o.cName}</a></li></c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
                                         <h4>Price $<span class="nolmal">${o.price}</span></h4>
 
                                     </div>
-                                    <a class="buynow" href="#">Buy now</a>
+                                    <a class="buynow" href="detail?pid=${o.id}">Buy now</a>
                                 </div></c:forEach>
                         </div>
                     </div>

@@ -86,6 +86,31 @@ public class DAO {
         }
         return list;
     }
+    public product getProductByPid(String pid) {
+        String query = "SELECT [id]\n"
+                + "      ,[name]\n"
+                + "      ,[image]\n"
+                + "      ,[price]\n"
+                + "      ,[cateID]\n"
+                + "  FROM [Wish].[dbo].[product] WHERE id = ?";
+        try {
+            conn = new BaseDAL().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)
+                );
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         DAO dao = new DAO();
         List<product> list= dao.getAllProduct();
