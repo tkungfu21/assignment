@@ -39,9 +39,7 @@
     </head>
 
     <body>
-        <div id="content">
-            <!-- header -->
-            <header>
+       
                 <!-- header inner -->
                 <div class="head_top">
                     <div class="header">

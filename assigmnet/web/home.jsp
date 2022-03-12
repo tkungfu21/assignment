@@ -99,12 +99,9 @@
                                 </div>
                                 <div class="col-lg-9">
                                     <div class="right_header_info">
-                                        <ul>
+                                        <form action ="search"><ul>
                                             <li class="menu_iconb">
-                                                <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" />7213456789</a>
-                                            </li>
-                                            <li class="menu_iconb">
-                                                <a href="#">Log in <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
+                                                <a href="login">Log in <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
                                             </li>
                                             <li class="menu_iconb">
                                                 <a href="#">Signup<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
@@ -112,16 +109,21 @@
                                             <li class="tytyu">
                                                 <a href="#"> <img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a>
                                             </li>
-                                            <li class="menu_iconb">
-                                                <a href="#"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a>
-                                            </li>
+                                           <li class="menu_iconb">
+                                                    <a><input type="text" name="txt" value=""/></a>
+
+                                                </li>
+                                                <li class="menu_iconb">
+                                                    <button type="sumbit" style="background-color:transparent"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></button>
+                                                </li>
 
                                             <li>
                                                 <button type="button" id="sidebarCollapse">
                                                     <img src="images/menu_icon.png" alt="#" />
                                                 </button>
                                             </li>
-                                        </ul>
+                                        </ul></form>
+                                        
                                     </div>
                                 </div>
                             </div>
