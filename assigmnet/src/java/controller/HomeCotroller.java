@@ -36,6 +36,7 @@ public class HomeCotroller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         DAO dao = new DAO();
         List<product> listP= dao.getAllProduct();
         List<Category> listC = dao.getAllCategorys();

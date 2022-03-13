@@ -110,6 +110,31 @@ public class DAO {
         }
         return null;
     }
+    public List<product> getProductByName(String text){
+        List<product> list = new ArrayList<>();
+        String query = "SELECT [id]\n"
+                + "      ,[name]\n"
+                + "      ,[image]\n"
+                + "      ,[price]\n"
+                + "      ,[cateID]\n"
+                + "  FROM [Wish].[dbo].[product] WHERE [name] LIKE ? ";
+        try {
+            conn = new BaseDAL().getConnection(); 
+            ps = conn.prepareStatement(query);
+             ps.setString(1,"%"+text+"%");
+            rs = ps.executeQuery();               
+            while (rs.next()) {
+                list.add(new product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)
+                ));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
     
     public static void main(String[] args) {
         DAO dao = new DAO();
