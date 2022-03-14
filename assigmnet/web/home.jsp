@@ -59,19 +59,16 @@
                 <ul class="list-unstyled components">
 
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="home">Home</a>
                     </li>
                     <li>
-                        <a href="#brand">Brands</a>
+                        <a href="">Manage Product</a>
                     </li>
                     <li>
-                        <a href="#shoes">Shoes</a>
+                        <a href="">Manage User</a>
                     </li>
                     <li>
-                        <a href="#jewellery">Jewellery</a>
-                    </li>
-                    <li>
-                        <a href="#kids">Kids and Babies</a>
+                        <a href="">Manage Store</a>
                     </li>
                 </ul>
 
@@ -92,7 +89,7 @@
                                     <div class="full">
                                         <div class="center-desk">
                                             <div class="logo">
-                                                <a href="index.html"><img src="images/logo.png" alt="#"></a>
+                                                <a href="home"><img src="images/logo.png" alt="#"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -100,11 +97,19 @@
                                 <div class="col-lg-9">
                                     <div class="right_header_info">
                                         <form action ="search"><ul>
+                                                <c:if test="${sessionScope.acc == null}">
+                                                    <li class="menu_iconb">
+                                                        <a href="login">Log in <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
+                                                    </li>
+                                                </c:if>
+                                                <c:if test="${sessionScope.acc != null}">
+                                                    <li class="menu_iconb">
+                                                        <a href="logout">Log out <img style="margin-right: 15px;" src="icon/7.png" alt="#" /> </a>
+                                                    </li>
+                                                </c:if>
+                                            
                                             <li class="menu_iconb">
-                                                <a href="login">Log in <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
-                                            </li>
-                                            <li class="menu_iconb">
-                                                <a href="#">Signup<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
+                                                <a href="signin">Signup<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
                                             </li>
                                             <li class="tytyu">
                                                 <a href="#"> <img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a>
@@ -207,6 +212,7 @@
 
                 </div>
             </header>
+        </div>
             <!-- Categories -->
             <div class="Categories">
                 <div class="container">
@@ -324,11 +330,6 @@
                 </div>
             </div>
            
-            <div class="copyright"> 
-                <div class="container">
-                <p>Copyright 2019 All Right Reserved By <a href="https://html.design/">Free html Templates</a></p>
-            </div>
-          </div>
         </div>
 
     </footer>

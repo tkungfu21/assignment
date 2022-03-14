@@ -19,7 +19,7 @@ import model.Account;
  *
  * @author ADMIN
  */
-public class LoginServlet extends HttpServlet {
+public class SignInServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +33,26 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        response.setContentType("text/html;charset=UTF-8");
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        String re_pass = request.getParameter("repass");
+        if(!pass.equals(re_pass)){
+            response.sendRedirect("Login.jsp");
+        }else{
+            DAO dao = new DAO();
+            Account a = dao.checkAccountExist(user);
+            if(a == null){
+                //dc signup
+                dao.singup(user, pass);
+                Account account = dao.login(user, pass);
+                HttpSession session = request.getSession();
+                session.setAttribute("acc", account);
+                response.sendRedirect("home");
+            }else{
+                //day ve trang login.jsp
+                response.sendRedirect("signIn.jsp");
+            }
         }
     }
 
@@ -59,8 +68,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       request.getRequestDispatcher("Login.jsp").forward(request, response);
+        request.getRequestDispatcher("signIn.jsp").forward(request, response);
     }
 
     /**
@@ -74,18 +82,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-        DAO dao = new DAO();
-        Account a = dao.login(username, password);
-        if (a == null) {
-            request.setAttribute("mess", "wrong username or password");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", a);
-            response.sendRedirect("home");
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -18,26 +18,27 @@
     <body>
         <div class="container login-container">
         
+            <form action="signin" method="post">
                 <div class="col-md-6 login-form-2">
-                    <h3>Login Form 2</h3>
+                    <h3>Sign in</h3>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="text" class="form-control" placeholder="Your Username" name="user" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Your Password" name="pass" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Retext Your Password" name="repass" value="" />
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
                         </div>
                         <div class="form-group">
 
-                            <a href="#" class="btnForgetPwd" value="Login">Forget Password?</a>
+                            <a href="login" class="btnForgetPwd" value="">back to login</a>
                         </div>
-                    </form>
                 </div>
+            </form>
             </div>
         </div>
     </body>

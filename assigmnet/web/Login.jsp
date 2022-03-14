@@ -19,20 +19,22 @@
         <div class="container login-container">
             <div class="row">
                 <div class="col-md-6 login-form-1">
-                    <h3>Login Form 1</h3>
-                    
+                    <form action="login" method="post">
+                        <h3>Login in</h3>
+                        <p class="text-danger">${mess}</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="text" class="form-control" placeholder="Your Username" name="user" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Your Password" name="pass" value="" />
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
                         </div>
                         <div class="form-group">
-                            <a href="#" class="btnForgetPwd">Forget Password?</a>
+                            <a href="signin" class="btnForgetPwd">sign in</a>
                         </div>
+                    </form>
                     
                 </div>
                 
