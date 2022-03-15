@@ -20,6 +20,10 @@
         <servlet-name>SignInServlet</servlet-name>
         <servlet-class>controller.SignInServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>manager</servlet-name>
+        <servlet-class>controller.manager</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchByCategory</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manager</servlet-name>
+        <url-pattern>/manager</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
