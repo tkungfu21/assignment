@@ -61,22 +61,7 @@
                         <li class="active">
                             <a href="home">Home</a>
                         </li>
-                        <c:if test="${sessionScope.acc.isSell==1}">
-                            <li>
-                                <a href="">Manage Product</a>
-                            </li>
-                            <li>
-                                <a href="">Manage Store</a>
-                            </li>
-                        </c:if>
-                            <c:if test="${sessionScope.acc.isAdmin==1}">
-                                <li>
-                                    <a href="">Manage User</a>
-                                </li>
-                                <li>
-                                    <a href="">Manage Store</a>
-                                </li>
-                            </c:if>
+                        
                         </ul>
 
                     </nav>
@@ -278,66 +263,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
-                                            <div class="row">
-                                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 ">
-                                                    <div class="address">
-                                                        <h3>Contact us </h3>
-                                                        <ul class="loca">
-                                                            <li>
-                                                                <a href="#"><img src="icon/loc.png" alt="#" /></a>145 londone
-                                                                <br>uk </li>
-                                                            <li>
-                                                                <a href="#"><img src="icon/call.png" alt="#" /></a>+12586954775 </li>
-                                                            <li>
-                                                                <a href="#"><img src="icon/email.png" alt="#" /></a>demo@gmail.com </li>
-
-                                                        </ul>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                                    <div class="address">
-                                                        <h3>customer service</h3>
-                                                        <ul class="Menu_footer">
-                                                            <li class="active"> <a href="#">My account</a> </li>
-                                                            <li><a href="#">Wishlist</a> </li>
-                                                            <li><a href="#">My Cart</a> </li>
-                                                            <li><a href="#">Checkout</a> </li>
-                                                            <li><a href="#">Login</a> </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                                    <div class="address">
-                                                        <h3>corporation</h3>
-                                                        <ul class="Links_footer">
-                                                            <li class="active"><a href="#">My account</a> </li>
-                                                            <li><a href="#">Wishlist</a> </li>
-                                                            <li><a href="#">My Cart</a> </li>
-                                                            <li><a href="#"> Checkout</a> </li>
-                                                            <li><a href="#">Login</a> </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-6 col-sm-6 ">
-                                                    <div class="address">
-                                                        <h3>why choose us</h3>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
-                                                        <form class="newtetter">
-                                                            <input class="tetter" placeholder="Your email" type="text" name="Your email">
-                                                            <button class="submit">Subscribe</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                                               
 
                         </footer>
                         <!-- end footer -->

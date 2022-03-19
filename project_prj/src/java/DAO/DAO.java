@@ -262,8 +262,8 @@ public class DAO {
     public static void main(String[] args) {
         DAO dao = new DAO();
         List<product> list = dao.getAllProduct();
-        for (product o : list) {
+        list.forEach((o) -> {
             System.out.println(o);
-        }
+        });
     }
 }

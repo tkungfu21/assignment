@@ -24,6 +24,10 @@
         <servlet-name>manager</servlet-name>
         <servlet-class>controller.manager</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteController</servlet-name>
+        <servlet-class>controller.deleteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchByCategory</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>manager</servlet-name>
         <url-pattern>/manager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteController</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

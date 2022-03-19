@@ -33,14 +33,14 @@ public class SearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String text = request.getParameter("txt");
         DAO dao = new DAO();
         List<product> list = dao.getProductByName(text);
         List<Category> listC = dao.getAllCategorys();
         request.setAttribute("listC", listC);
         request.setAttribute("listP", list);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("manager.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
