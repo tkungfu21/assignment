@@ -339,6 +339,26 @@ public class DAO {
         return list;
     }
 
+    public order getOrderByID(String uid) {
+        String query = "SELECT [oID]\n"
+                + "      ,[sell_id]\n"
+                + "      ,[createDate]\n"
+                + "      ,[total_price]\n"
+                + "  FROM [Wish].[dbo].[Order]\n"
+                + "  WHERE [oID] = ?";
+        try {
+            conn = new BaseDAL().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, uid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new order(rs.getInt(1), rs.getInt(2), rs.getDate(3), rs.getDouble(4));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public void deleteAccount(String Uid) {
         String query = "DELETE FROM [Wish].[dbo].[Account]\n"
                 + "      WHERE [uID] = ?";
@@ -369,9 +389,43 @@ public class DAO {
         }
     }
 
+    public void SetingAccount(String uid, String Status_id) {
+        String query = "UPDATE [Wish].[dbo].[Account]\n"
+                + "   SET \n"
+                + "      [status_id] = ?\n"
+                + " WHERE [uID] = ?";
+        try {
+            conn = new BaseDAL().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, Status_id);
+            ps.setString(2, uid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public static void main(String[] args) {
         DAO dao = new DAO();
         product p = dao.getProductByPid("1");
         System.out.println(p);
     }
+
+    public void uppdateOrder(String id, String sell, String date, String price) {
+        String query = "UPDATE [Wish].[dbo].[Order]\n"
+                + "   SET [sell_id] = ?\n"
+                + "      ,[createDate] = ?\n"
+                + "      ,[total_price] = ?\n"
+                + " WHERE [oID] = ? ";
+        try {
+            conn = new BaseDAL().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, sell);
+            ps.setString(2, date);
+            ps.setString(3, price);
+            ps.setString(4, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    public void 
 }

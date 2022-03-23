@@ -232,7 +232,7 @@ $(document).ready(function(){
                         </c:if>
                         
                         <td>
-                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                            <a href="seting?uid=${o.getId()}" class="settings" title="Settings"><i class="material-icons">&#xE8B8;</i></a>
                             <a href="deleteuser?uid=${o.getId()}" class="delete" title="Delete" ><i class="material-icons">&#xE5C9;</i></a>
                         </td>
                     </tr>

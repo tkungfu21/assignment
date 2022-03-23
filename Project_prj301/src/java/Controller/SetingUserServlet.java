@@ -8,20 +8,16 @@ package Controller;
 import DAO.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.product;
 
 /**
  *
  * @author ADMIN
  */
-public class PaymentServlet extends HttpServlet {
+public class SetingUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +36,10 @@ public class PaymentServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet paymentServlet</title>");            
+            out.println("<title>Servlet SetingUserServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet paymentServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SetingUserServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,7 +57,8 @@ public class PaymentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       request.getRequestDispatcher("set.jsp").forward(request, response);
+        
     }
 
     /**
@@ -75,19 +72,11 @@ public class PaymentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        List<product> listP = (List<product>) session.getAttribute("p");
-        Account a = (Account) session.getAttribute("acc");
-        double total = 0;
-        for (product o : listP) {
-            total = total + Double.parseDouble(o.getPrice());
-        }
+        String uid = request.getParameter("uid");
+        String cate = request.getParameter("category");
         DAO dao = new DAO();
-        String totalString = Double.toString(total);
-        dao.insertOrder(a.getId(), totalString);
-        listP.removeAll(listP);
-        session.setAttribute("p", listP);
-        request.getRequestDispatcher("store.jsp").forward(request, response);
+        dao.singup(uid, cate);
+        response.sendRedirect("./user");
     }
 
     /**

@@ -8,20 +8,16 @@ package Controller;
 import DAO.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.product;
 
 /**
  *
  * @author ADMIN
  */
-public class PaymentServlet extends HttpServlet {
+public class EditOrder2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +36,10 @@ public class PaymentServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet paymentServlet</title>");            
+            out.println("<title>Servlet EditOrder2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet paymentServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditOrder2 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,19 +71,13 @@ public class PaymentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        List<product> listP = (List<product>) session.getAttribute("p");
-        Account a = (Account) session.getAttribute("acc");
-        double total = 0;
-        for (product o : listP) {
-            total = total + Double.parseDouble(o.getPrice());
-        }
+        String id = request.getParameter("id");
+        String sell = request.getParameter("sell");
+        String date = request.getParameter("date");
+        String price = request.getParameter("price");
         DAO dao = new DAO();
-        String totalString = Double.toString(total);
-        dao.insertOrder(a.getId(), totalString);
-        listP.removeAll(listP);
-        session.setAttribute("p", listP);
-        request.getRequestDispatcher("store.jsp").forward(request, response);
+        dao.uppdateOrder(id, sell, date, price);
+        response.sendRedirect("./order");
     }
 
     /**

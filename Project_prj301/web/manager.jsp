@@ -45,6 +45,14 @@
                     }
                 });
             });
+            function ConfirmDelete(id)
+            {
+                var x = confirm("Are you sure you want to delete?");
+                if (x == true){
+                    window.location.href = 'delete?id='+id
+                }
+                    
+            }
         </script>
     </head>
     <body>
@@ -95,7 +103,7 @@
                                     <td></td>
                                     <td>
                                         <a href="upload?id=${o.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="delete?id=${o.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                        <a href="" class="delete" onclick="ConfirmDelete(${o.id})"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
